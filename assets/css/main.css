@@ -776,8 +776,6 @@ nav.navbar .nav-content .extra .nav-trigger {
   border-radius: 12px;
   padding: 1rem;
   scroll-snap-align: center;
-  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 .main .why-section .section-slider .content-item img {
   width: 100%;
