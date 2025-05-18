@@ -48,3 +48,67 @@ function smoothScrollTo(targetElement, duration = 800) {
       if (targetElement) smoothScrollTo(targetElement, 1000); // Adjust duration in milliseconds
     });
   });
+
+  //Slider
+  const track = document.querySelector('.slider-track');
+const dots = document.querySelectorAll('.dot');
+const items = document.querySelectorAll('.content-item');
+const container = document.querySelector('.section-slider');
+
+let currentIndex = 0;
+const scrollMargin = 400;
+
+function scrollToIndex(index) {
+  const targetSlide = items[index];
+  let offset = targetSlide.offsetLeft - scrollMargin;
+
+  // Max scroll check
+  const maxScroll = track.scrollWidth - container.offsetWidth;
+  if (offset > maxScroll) offset = maxScroll;
+  if (offset < 0) offset = 0;
+
+  track.scrollTo({
+    left: offset,
+    behavior: 'smooth'
+  });
+
+  updateDots(index);
+  currentIndex = index;
+}
+
+function updateDots(index) {
+  dots.forEach(dot => dot.classList.remove('active'));
+  if (dots[index]) dots[index].classList.add('active');
+}
+
+// Dot click
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const index = parseInt(dot.dataset.index);
+    scrollToIndex(index);
+  });
+});
+
+// Keyboard
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' && currentIndex < items.length - 1) {
+    scrollToIndex(++currentIndex);
+  } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+    scrollToIndex(--currentIndex);
+  }
+});
+
+// Optional: update dot when user swipes
+track.addEventListener('scroll', () => {
+  let nearestIndex = 0;
+  let minDistance = Infinity;
+  items.forEach((item, i) => {
+    const distance = Math.abs(item.offsetLeft - scrollMargin - track.scrollLeft);
+    if (distance < minDistance) {
+      minDistance = distance;
+      nearestIndex = i;
+    }
+  });
+  updateDots(nearestIndex);
+  currentIndex = nearestIndex;
+});
