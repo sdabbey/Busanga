@@ -812,14 +812,25 @@ nav.navbar .nav-content .extra .nav-trigger {
   background: #FEDA0A;
 }
 @media (max-width: 768px) {
+  .main .why-section .section-header h3 {
+    font-size: 16.8px;
+  }
+  .main .why-section .section-header h1 {
+    font-size: 35px;
+  }
   .main .why-section .section-slider .content-item {
+    border: 1px solid rgba(0, 0, 0, 0.034);
     -webkit-box-flex: 0;
         -ms-flex: 0 0 80%;
             flex: 0 0 80%;
   }
+  .main .why-section .section-slider .content-item a {
+    font-size: 15.4px;
+  }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .main .why-section .section-slider .content-item {
+    border: 1px solid rgba(0, 0, 0, 0.034);
     -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(50% - 12px);
             flex: 0 0 calc(50% - 12px);
