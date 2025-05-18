@@ -304,7 +304,7 @@ nav.navbar .nav-content .extra .nav-trigger {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: 70%;
+  height: 75%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -320,9 +320,9 @@ nav.navbar .nav-content .extra .nav-trigger {
       -ms-flex-direction: column;
           flex-direction: column;
   align-items: center;
-  padding: 0;
+  padding: 1rem 0;
 }
-.sidebar .nav_list .btn {
+.sidebar .nav_list .download-btn {
   padding: 0 15px;
   color: #000000;
   background-color: #fff;
@@ -347,14 +347,14 @@ nav.navbar .nav-content .extra .nav-trigger {
       -ms-flex-align: center;
           align-items: center;
   line-height: 40px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media (min-width: 1200px) {
-  .sidebar .nav_list .btn {
+  .sidebar .nav_list .download-btn {
     font-size: 13.16px;
   }
-}
-.sidebar .nav_list .btn img {
-  width: 30px;
 }
 .sidebar .nav_list li {
   list-style: none;
@@ -363,7 +363,7 @@ nav.navbar .nav-content .extra .nav-trigger {
 }
 .sidebar .nav_list li a {
   text-decoration: none;
-  color: #ffffff;
+  color: #000000;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   font-size: 0.95em;
@@ -412,7 +412,7 @@ nav.navbar .nav-content .extra .nav-trigger {
 }
 .sidebar .socials a {
   text-decoration: none;
-  color: var(--text-color);
+  color: #000000;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
