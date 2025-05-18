@@ -99,16 +99,22 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Optional: update dot when user swipes
-track.addEventListener('scroll', () => {
-  let nearestIndex = 0;
-  let minDistance = Infinity;
-  items.forEach((item, i) => {
-    const distance = Math.abs(item.offsetLeft - scrollMargin - track.scrollLeft);
-    if (distance < minDistance) {
-      minDistance = distance;
-      nearestIndex = i;
-    }
-  });
-  updateDots(nearestIndex);
-  currentIndex = nearestIndex;
-});
+const observerOptions = {
+    root: track,
+    threshold: 0.85, // Means 60% of item should be visible
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = Array.from(items).indexOf(entry.target);
+        if (index !== currentIndex) {
+          updateDots(index);
+          currentIndex = index;
+        }
+      }
+    });
+  }, observerOptions);
+  
+  items.forEach(item => observer.observe(item));
+  
